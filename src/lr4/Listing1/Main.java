@@ -1,6 +1,7 @@
 /*Листинг 1. Пример программы, которая выводит на консоль Прямоугольник со сторонами, ширина: 15 символов,
 высота: 10 строк
-*/package lr4.Listing1;
+*/
+package lr4.Listing1;
 
 public class Main {
     public static void main(String[] args) {
