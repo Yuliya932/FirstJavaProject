@@ -31,7 +31,7 @@ public class Main {
             }
         }
 
-        System.out.println(Arrays.deepToString(arrayInt));
+//        System.out.println(Arrays.deepToString(arrayInt));//выводит массив в одну строчку
         for (i = 0; i < a; i++) {
             System.out.print("номер строки: " + (i + 1) + " ; ");
             for (j = 0; j < b; j++) {
@@ -65,7 +65,7 @@ public class Main {
             }
         }
 
-        System.out.println(Arrays.deepToString(arrayInt2));
+//        System.out.println(Arrays.deepToString(arrayInt2));//выводит массив в одну строчку
         for (  i = 0 ; i < a-1 ; i++){
             System.out.print("номер строки: " + (i+1) + " ; ");
             for (  j = 0 ; j < b-1 ; j++){
