@@ -8,17 +8,17 @@ package lr5.Example1;
 
 public class Test {
 
-    private char ch1;
+    private char ch1; // поле класса
 
-    public void setCh1(char ch1) {
+    public void setCh1(char ch1) { //метод
         this.ch1 = ch1;
     }
 
-    public int getCode(){
+    public int getCode(){ //метод
         return ch1;
     }
 
-    public void showCodeAndSymbol(){
+    public void showCodeAndSymbol(){ //метод
         System.out.print(ch1 + " ");
         System.out.print((int) ch1);
     }

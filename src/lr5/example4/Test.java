@@ -11,8 +11,8 @@
 package lr5.example4;
 
 public class Test {
-    char symb;
-    int numb;
+    char symb; // поля класса
+    int numb; // поля класса
 
     public Test (char symb , int numb){
         System.out.println( symb + " " + numb);
@@ -20,13 +20,8 @@ public class Test {
 
      public Test (double dbl){
         int i = (int) (dbl*100 - ( (int) dbl) * 100);
-         System.out.println( (char) i + " " + (int) dbl);
-
-
+         char symb = (char) i;
+         int numb = (int) dbl;
+         System.out.println(  symb + " " + numb);
      }
-
-
-
-
-
 }

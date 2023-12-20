@@ -9,12 +9,14 @@
 package lr5.example2;
 
 public class Test {
-    private char symb1;
-    private char symb2;
+    private char symb1; // поле класса
+    private char symb2; // поле класса
 
-    public void printSymb(char symb1,  char symb2  ) {
+    public void SetSymb(char symb1,  char symb2  ) { //метод сеттер
         this.symb1 = symb1;
         this.symb2 = symb2;
+    }
+        public void printSymb() { //метод и у него нет аргументов
 
         int int1 = (int) symb1;
         int int2 = (int) symb2;
@@ -23,6 +25,4 @@ public class Test {
             System.out.print( (char) i);
         }
     }
-
-
 }

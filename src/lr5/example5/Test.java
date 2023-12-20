@@ -11,13 +11,13 @@
 package lr5.example5;
 
 public class Test {
-    private int numb;
+    private int numb; // поле класса
 
-    public Test(){
+    public Test(){ // конструктор без аргументов,  поле получает нулевое значение
         this.numb = 0;
     }
 
-    public Test (int numb) {
+    public Test (int numb) { // конструктор
         if (numb >100) {
             this.numb = 100;
         } else {
@@ -25,11 +25,23 @@ public class Test {
         }
     }
 
-    public void setNumb(int numb) {
-        this.numb = numb;
+    public void Metod(){ // метод без аргументов,  поле получает нулевое значение
+        this.numb = 0;
     }
+
+    public void Metod (int numb) { // метод
+        if (numb >100) {
+            this.numb = 100;
+        } else {
+            this.numb = numb;
+        }
+    }
+
+    public void setNumb(int numb) { // метод сеттер
+        this.numb = numb;
+    } // метод сеттер
 
     public int getNumb() {
         return numb;
-    }
+    } // метод геттер
 }

@@ -12,8 +12,5 @@ public class Main {
         Test test2 = new Test(1);
 
         Test test3 = new Test(1,2);
-
-
-
     }
 }

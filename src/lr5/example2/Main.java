@@ -14,15 +14,17 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Test test = new Test();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите первый символ: ");
         char ch1 = scanner.next().charAt(0);
         System.out.println("Введите второй символ: ");
         char ch2 = scanner.next().charAt(0);
 
-        Test test = new Test();
+        test.SetSymb(ch1,ch2);
 
-        test.printSymb(ch1, ch2);
+        test.printSymb();
 
 
 

@@ -5,16 +5,15 @@
 package lr5.example3;
 
 public class Test {
-    int x;
-    int y;
+    int x; //поле класса
+    int y; // поле класса
 
-    public Test (){
+    public Test (){ // конструктор без аргументов
     }
 
-    public Test (int x){
+    public Test (int x){ //конструктор с 1 аргументом
     }
 
-    public Test (int x , int y){
+    public Test (int x , int y){ //конструктор с 2 аргументами
     }
-
 }

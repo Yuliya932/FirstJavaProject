@@ -15,14 +15,24 @@ package lr5.example6;
 public class Main {
     public static void main(String[] args) {
         Test test1 = new Test(1,2);
-        System.out.println("min: " + test1.getMin() + " max: " + test1.getMax());
+        System.out.println("С помощью конcтруктора с 2 аргументами: min: " + test1.getMin() + " max: " + test1.getMax());
 
         Test test2 = new Test(2,1);
-        System.out.println("min: " + test2.getMin() + " max: " + test2.getMax());
+        System.out.println("С помощью конcтруктора с 2 аргументами: min: " + test2.getMin() + " max: " + test2.getMax());
 
-        Test test3 = new Test();
-        test3.setMin(5);
-        test3.setMax(2);
-        System.out.println("min: " + test3.getMin() + " max: " + test3.getMax());
+        Test test4 = new Test(244);
+        System.out.println("С помощью конcтруктора с 1 аргументом: min: " + test4.getMin() + " max: " + test4.getMax());
+
+        int x, y, z;
+        z = 6;
+        Test test6 = new Test(z);
+        test6.MinMax(z);
+
+        x = 5;
+        y = 2;
+        Test test3 = new Test(x,y);
+        test3.setMin(x);
+        test3.setMax(y);
+        test3.MinMax(x,y);
     }
 }

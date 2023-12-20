@@ -5,8 +5,6 @@
 */
 package lr5.Example1;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Test test = new Test();
@@ -15,9 +13,5 @@ public class Main {
         System.out.println(test.getCode());
 
         test.showCodeAndSymbol();
-
-//        Scanner scanner = new Scanner(System.in);
-
-
     }
 }

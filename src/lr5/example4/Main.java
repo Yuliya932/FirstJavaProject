@@ -17,7 +17,5 @@ public class Main {
         Test test2 = new Test(12.6537);
         Test test3 = new Test((char) 98, 137);
         Test test4 = new Test(137.985234);
-
-
     }
 }
