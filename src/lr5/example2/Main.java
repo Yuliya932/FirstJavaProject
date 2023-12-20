@@ -25,17 +25,6 @@ public class Main {
         test.SetSymb(ch1,ch2);
 
         test.printSymb();
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }
