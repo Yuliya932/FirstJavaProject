@@ -5,8 +5,6 @@ package lr6.example8;
 
 public class Test {
     static double avgInts (int[] n) {
-//        if (n.length == 0)
-//            return 0;
 
         double sum=0;
 
