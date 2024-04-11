@@ -1,7 +1,7 @@
 /*Пример 10. Выполнить чтение из одного файла и запись в дру- гой
 файл с использованием класса PrintWriter.
 PrintWriter позволяет в качестве параметра принимать выходной
-поток System.out и осуществлять вывод на консоль. При этом он работает намного быстрее, чем System.out.println().
+поток System.out и осуществлять вывод на консоль. При этом он работает намного быстрее, чем System.out.println().
 
 */
 package lr8.example10;
@@ -25,6 +25,7 @@ public class Buf_RW_2 {
             while ((s = br.readLine()) != null) {
                 lineCount++;
                 out.println(lineCount + ": " + s);
+                System.out.println(s);
             }
         } catch (IOException e) {
             System.out.println("Ошибка !!!!!!!!"); }
