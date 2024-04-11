@@ -34,3 +34,17 @@ public class Buf_RW_2 {
             out.close();
         }}
 }
+
+/*Представленный ниже фрагмент кода демонстрирует работу
+PrintWriter с системным выходным потоком:
+…
+PrintWriter out = new PrintWriter(System.out);
+int lineCount = 0;
+String s;
+// Вывод информации из файла на монитор
+while ((s = br.readLine()) != null)
+{
+lineCount++;
+out.println(lineCount + ": " + s);
+}
+*/
