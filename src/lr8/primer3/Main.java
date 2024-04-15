@@ -50,9 +50,7 @@ public class Main {
                     } else
                         out.print(words[i] + " "); // передали в поток в файл
 //                    System.out.print(words[i]+ " "); // почему-то не правильно работает
-
                 }
-
             }
         } catch (IOException e) {
             System.out.println("Ошибка !!!!!!!!"); }
@@ -61,8 +59,6 @@ public class Main {
             out.flush();
             out.close();
         }
-
         }
-
     }
 
