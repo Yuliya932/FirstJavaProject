@@ -12,7 +12,7 @@ public class Node {
     //Класс - структура элемента списка
     public int value; // значение
 
-    public Node next; // поле - ссылка указатель на следущий элемент
+    public Node next; // поле - ссылка указатель на следующий элемент
 
     Node(int value, Node next) { // конструктор класса
         this.value = value;
