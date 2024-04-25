@@ -26,63 +26,36 @@ public class Main {
         list.createTail("2");
         list.createTail("3");
         list.createTail("4");
-
-
-        SinglyLinkedList.Node r = new SinglyLinkedList.Node("77");
+        System.out.println("создан связный список : " + list);
 
         list.createHead("777");
-
         list.createTail("444");
+        System.out.println("связный список после createHead и createTail : " + list);
 
         list.addFirst("111");
-
         list.addLast("999");
+        System.out.println("связный список после addFirst и addLast : " + list);
 
+        list.insert("44",2);
+        System.out.println("связный список после insert: " + list);
 
-        System.out.println("связный список : " + list);
-        System.out.println(list.head());
-        System.out.println(list.tail());
+        list.removeLast();
+        list.removeFirst();
+        System.out.println("связный список после removeFirst и removeLast: " + list);
 
+        list.remove(1);
+        System.out.println("связный список после remove 1 элемента: " + list);
 
-//        MyList f = new MyList();
-//        MyList.cr
+        System.out.println("вывод (возвращается строка, сформированная из элементов списка) toStringRec():");
+        list.toStringRec(list.head());
+        System.out.println("");
 
+        list.createHeadRec(1,3);
+        System.out.println("связный список после createHeadRec: " + list);
 
-//        System.out.println("Первый узел от конца: " + list.getLastNode(1));
-//        System.out.println("Второй узел от конца: " + list.getLastNode(2));
-//        System.out.println("Третий узел от конца: " + list.getLastNode(3));
-
-//        //создание несвязанных узлов с помощью конструктора
-//        Node node0 = new Node(0, null); //нулевой узел - будет головой в списке
-//        Node node1 = new Node(1, null);
-//        Node node2 = new Node(2, null);
-//        Node node3 = new Node(3, null); // последний элемент будет хвостом в списке
-//
-//        //Связывание узлов в список с помощью ссылок
-//        node0.next = node1;
-//        node1.next = node2;
-//        node2.next = node3;
-//        //вывод списка с использованием вспомогательной переменной ref
-//        //соответствующей текущему значению ссылки при прохождении по ссылке
-//        Node ref = node0;
-//        while (ref != null) {
-//            System.out.print(" " + ref.value);
-//            ref = ref.next;
-//        }
-//        System.out.println("");
-//        System.out.println();
-//
-//
-//
-//
-//        Node ref1 = node0;
-//        ref=Node.createHead(2);
-//
-//        while (ref != null) {
-//            System.out.print(" " + ref.value);
-//            ref = ref.next;
-//        }
-
+        list.createTailRec(1,3);
+        System.out.println("связный список после createTailRec: " + list);
     }
-    }
+}
+
 

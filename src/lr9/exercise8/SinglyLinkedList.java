@@ -17,6 +17,8 @@
         */
 package lr9.exercise8;
 
+import lr9.exercise5.Node;
+
 public class SinglyLinkedList {
 
     public static class Node {
@@ -34,8 +36,6 @@ public class SinglyLinkedList {
 
     private static Node head; // Голова - это первый узел связного списка
     private static Node tail; // Хвост - это последний узел связного списка
-
-
 
     /**
      * проверяет, пуст ли список
@@ -110,9 +110,6 @@ public class SinglyLinkedList {
         head=a;
     }
 
-
-
-
     /**
      * метод возвращающий длину связного списка
      *
@@ -131,18 +128,53 @@ public class SinglyLinkedList {
 
     public void insert(String data, int index) { //вставка элемента в список с указанным номером Insert();
         Node a = new Node(data);
-
-        for(int i = 0; i < length(); i++){
-            //объекты нужно куда-то поместить, чтобы назначить им индексы?
+        // создается новый элемент со значением 44 – для вставки
+        Node newNode=new Node(data);
+        Node ref = head;    // используем временную переменную
+        int k=1;   // счетчик элементов
+// поиск нужного положения узла для вставки
+        while (ref.next!= null && (k<index )) {
+            ref = ref.next;
+            k++;
         }
-        if (head == null) {
-            head = new Node(data);
-            return;
-        }
-        a.next = head;
-        head=a;
+// переброска ссылок при вставке элемента
+        newNode.next=ref.next;
+        ref.next=newNode;
     }
 
+    public void removeLast() { //удаление последнего элемента списка ;
+        // создаем вспомогательную переменную
+        Node ref = head;
+// перемещаемся на предпоследний элемент
+        while (ref.next.next != null) {
+            ref = ref.next;
+        }
+// полю next предпоследнего элемента присваиваем null
+        ref.next=null;
+    }
+
+    public void removeFirst() { //удаление элемента с головы списка;
+        Node ref = head;    // используем временную переменную
+        int k=1;   // счетчик элементов
+// поиск нужного положения узла для вставки
+        while (ref.next.next != null && (k<2)) {
+            ref = ref.next;
+            k++;
+        }
+        head=ref;
+    }
+
+    public void remove(int x) { //удаление из списка элемента с указанным номером ;
+        Node ref = head; // создаем вспомогательную переменную
+        int k = 1;
+// поиск положения узла, предшествующего удаляемому
+        while (ref.next != null && (k < x)) {
+            ref = ref.next;
+            k++;
+        }
+// переброска ссылки для исключения ненужного элемента из списка
+        ref.next = ref.next.next;
+    }
 
     /**
      * получения n-го узла от конца
@@ -170,19 +202,52 @@ public class SinglyLinkedList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
         Node current = head;
         while (current != null) {
             sb.append(current).append("-->");
             current = current.next;
         }
-
-        if (sb.length() >= 3) {
-            sb.delete(sb.length() - 3, sb.length());
-
-        }
         return sb.toString();
     }
 
+    public void toStringRec(Node head) { //вывод (возвращается строка, сформированная из элементов списка) с использованием рекурсии
+        Node ref = head;
+        if (ref == null ) {
+            return;
+        } else
+            System.out.print(ref.data + "-->");
+            toStringRec(ref.next);
+    }
+
+    public void createHeadRec(int a, int b) { //ввод с головы с использованием рекурсии
+        //добавление элементов с перемещением головы (наращивание головы)
+        for (int i = a; i <= b; i++) {
+            Node ref = new Node("h" + i);
+             ref.next = head;
+             head = ref;
+                i++;
+            if (head == null) {
+                return;
+            } else
+                createHeadRec(i,b-a);
+        }
+    }
+
+    public void createTailRec(int a, int b) { //ввод с хвоста  с использованием рекурсии
+        for (int i = a; i <= b; i++) {
+            Node ref = head;
+            Node el = new Node("t" + i);
+            while (ref.next != null) {
+                ref = ref.next;
+            }
+                ref.next = el;
+                i++;
+
+                if (ref.next == null) {
+                    return;
+                } else
+                    createTailRec(i, b - a);
+            }
+        }
 }
 
