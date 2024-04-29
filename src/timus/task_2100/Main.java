@@ -31,7 +31,7 @@ public class Main {
                     continue;
 
                 }
-                if (readLine.contains("+")){ //true - если сожержит +, false - если нет
+                if (readLine.contains("+")){ //true - если содержит +, false - если нет
                     numberOfPairs++;
                 }
             }
