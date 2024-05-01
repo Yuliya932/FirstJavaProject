@@ -23,5 +23,4 @@ public class LinkParser {
             e.printStackTrace();
         }
     }
-
 }
