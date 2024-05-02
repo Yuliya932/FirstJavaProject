@@ -80,3 +80,14 @@ public class AddXMLFileMovies {
 //<director>Эльдар Рязанов</director>
 //<year>1973</year>
 
+//Подсказки:
+//
+//1.	Для записи данных в XML-файл можно воспользоваться классом javax.xml.transform.Transformer.
+//Пример:
+//
+//Transformer transformer =
+//		TransformerFactory.newInstance().newTransformer();
+//DOMSource source = new DOMSource(doc);
+//StreamResult result = new StreamResult(new File("src/lr10/example1/example.xml"));
+//transformer.transform(source, result);
+

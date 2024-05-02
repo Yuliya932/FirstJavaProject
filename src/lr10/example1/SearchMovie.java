@@ -55,3 +55,17 @@ public class SearchMovie {
         }
     }
 }
+
+//Подсказки
+//2.	Для поиска книг по автору или году издания можно воспользоваться Java Stream API и методом filter().
+//Пример:
+//
+//List<Element> books = nodeList.stream()
+//        .filter(node -> node.getNodeType() == Node.ELEMENT_NODE)
+//        .map(node -> (Element) node)
+//        .filter(element -> {
+//            String author = element.getElementsByTagName("author").item(0).getTextContent();
+//            String year = element.getElementsByTagName("year").item(0).getTextContent();
+//            return author.equalsIgnoreCase("Лев Толстой") && year.equals("1869");
+//        })
+//        .collect(Collectors.toList());
