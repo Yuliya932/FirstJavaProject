@@ -19,7 +19,7 @@ public class WriteExcelFileExample {
         //Создаем новый лист в книге
         XSSFSheet sheet = workbook.createSheet("Товары");
 
-        //Записыывем данные в ячейки
+        //Записываем данные в ячейки
         Row headerRow = sheet.createRow(0);
         headerRow.createCell(0).setCellValue("Товар");
         headerRow.createCell(1).setCellValue("Характеристики");
