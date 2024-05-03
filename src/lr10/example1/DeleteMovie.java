@@ -36,11 +36,16 @@ public class DeleteMovie {
                     if(c.equals(element.getElementsByTagName("title").item(0)
                             .getTextContent())) {
 
-                        nodeList.item(i).removeChild(doc.getElementsByTagName("movie").item(0));
+                        Node parentNode = element.getParentNode();
+                        parentNode.removeChild(element);
 
-                        node.removeChild(element.getElementsByTagName("title").item(0));
-                        node.removeChild(element.getElementsByTagName("director").item(0));
-                        node.removeChild(element.getElementsByTagName("year").item(0));
+//                        node.getParentNode().removeChild(element.getElementsByTagName("title").item(0));
+//
+//                        nodeList.item(i).removeChild(doc.getElementsByTagName("movie").item(0));
+//
+//                        node.removeChild(element.getElementsByTagName("title").item(0));
+//                        node.removeChild(element.getElementsByTagName("director").item(0));
+//                        node.removeChild(element.getElementsByTagName("year").item(0));
 
                     }
                 }

@@ -5,26 +5,26 @@ import java.util.Scanner;
 
 public class AddJsonMovie {
 
-    try {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Хотите добавить фильмы в список? (y/n)");
-        String c = in.nextLine();
-
-        if ("y".equals(c)) {
-
-
-
-            System.out.println("Введите название фильма: ");
-            System.out.println("Введите режиссера фильма: ");
-            System.out.println("Введите год выхода фильма: ");
-
-
-
-        }
-
-
-
-}
+//    try {
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Хотите добавить фильмы в список? (y/n)");
+//        String c = in.nextLine();
+//
+//        if ("y".equals(c)) {
+//
+//
+//
+//            System.out.println("Введите название фильма: ");
+//            System.out.println("Введите режиссера фильма: ");
+//            System.out.println("Введите год выхода фильма: ");
+//
+//
+//
+//        }
+//
+//
+//
+//}
 }
 
 //Подсказки
