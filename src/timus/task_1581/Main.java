@@ -29,7 +29,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,10 +44,6 @@ public class Main {
             String readLine;//можно убрать ="", и в ней будет null
 
             int numberOfNums = 0; // считываем колво
-
-            ArrayList<String> al = new ArrayList<String>();
-
-
             while ((readLine = bufferedReader.readLine()) != null) { //перебираем в цикле каждую строку
                 if (numberOfNums == 0) {
                     numberOfNums = Integer.parseInt(readLine); // считываем, преобразуем
