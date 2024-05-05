@@ -46,8 +46,6 @@ public class Main {
 
                                 int d = Integer.parseInt(k.toString());
                                 sum = sum + d;
-
-
                         }
                     }
                 }
