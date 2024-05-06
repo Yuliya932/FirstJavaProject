@@ -23,29 +23,41 @@ import org.apache.poi.xssf.usermodel.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.InvalidPathException;
 
-public class ReadExcelFileExample {
+public class
+ReadExcelFileExample {
     public static void main(String[] args) throws IOException {
-        //Открываем файл Excel для чтения
-        String filePath = "src/lr10/example4/example4.xlsx";
-        FileInputStream inputStream = new FileInputStream(filePath);
+        try {
+            //Открываем файл Excel для чтения
+            String filePath = "src/lr10/example4/example4.xlsx";
+            FileInputStream inputStream = new FileInputStream(filePath);
 
-        //Создаем экземляр книги Excel из файла
-        XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
+            //Создаем экземляр книги Excel из файла
+            XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
 
-        //Получаем лист из книги по его имени
-        XSSFSheet sheet = workbook.getSheet("Товары");
+            //Получаем лист из книги по его имени
+            XSSFSheet sheet = workbook.getSheet("Товары");
 
-        //Перебираем строки и ячейки листа
-        for (Row row : sheet){
-            for (Cell cell : row){
-                //Выводит значение ячейки на экран
-                System.out.print(cell.toString() + "\t");
+            //Перебираем строки и ячейки листа
+            for (Row row : sheet) {
+                for (Cell cell : row) {
+                    //Выводит значение ячейки на экран
+                    System.out.print(cell.toString() + "\t");
+                }
+                System.out.println();
             }
-            System.out.println();
-        }
-        //Закрываем файл и освобождаем ресурсы
-        workbook.close();
-        inputStream.close();
+            //Закрываем файл и освобождаем ресурсы
+            workbook.close();
+            inputStream.close();
+        }catch(InvalidPathException е) {
+            System.out.println("Oшибкa указания пути " + е);
+        }catch(NullPointerException е) {
+            System.out.println("Oтсутствие запрашиваемого листа " + е);
+            }catch(IOException е) {
+        System.out.println("Oшибкa ввода-вывода: " + е);
     }
+    }
+
 }
+
