@@ -15,7 +15,10 @@ public class TreeSetDemo {
         ts.add("E");
         ts.add("F");
         ts.add("D");
+        ts.add("A");
+
         System.out.println(ts);
         System.out.println(ts.subSet("C", "F"));
+        System.out.println(ts.size());
     }
 }
