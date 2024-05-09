@@ -14,47 +14,77 @@ public class Parser {
 
     private static Document getPage() throws IOException {
         String url = "https://www.pogoda.spb.ru/";
-        Document page = Jsoup.parse(new URL(url),3000);
+        Document page = Jsoup.parse(new URL(url), 3000);
         return page;
     }
 
     private static Pattern pattern = Pattern.compile("\\d{2}\\.\\d{2}");
 
-    private static String getDateFromString (String stringDate) throws Exception{
+    private static String getDateFromString(String stringDate) throws Exception {
         Matcher matcher = pattern.matcher(stringDate);
-        if(matcher.find()){
+        if (matcher.find()) {
             return matcher.group();
         }
-        throw new Exception ("Can't extract date from string");
+        throw new Exception("Can't extract date from string");
     }
 
-    private void printForValues (Elements values, int index){
-        for (int i = 0; i < 4; i++){
-            Element valueLine = values.get(index);
-            for (Element td : valueLine.select("td"));
-            System.out.println(td.text() + "       ");
+    private static int printPartValues(Elements values, int index) {
+        int iterationCount = 4;
+        if (index == 0) {
+            Element valueLn = values.get(3);
+            boolean isMorning = valueLn.text().contains("Утро");
+            if (isMorning) {
+                iterationCount = 3;
+            }
+        } else if (index == 0) {
+            Element valueLn = values.get(3);
+            boolean isDay = valueLn.text().contains("День");
+            if (isDay) {
+                iterationCount = 2;
+            }
+        } else if (index == 0) {
+            Element valueLn = values.get(3);
+            boolean isEvening = valueLn.text().contains("Вечер");
+            if (isEvening) {
+                iterationCount = 1;
+            }
+        } else if (index == 0) {
+            Element valueLn = values.get(3);
+            boolean isNight = valueLn.text().contains("Ночь");
+            if (isNight) {
+                iterationCount = 0;
+            }
         }
-        System.out.println();
+        for (int i = 0; i < iterationCount; i++) {
+                Element valueLine = values.get(index + i);
+                for (Element td : valueLine.select("td")) {
+                    System.out.print(td.text() + "\t");
+                }
+                System.out.println();
+        }
+        return iterationCount;
     }
 
-    public static void main(String[] args) throws Exception {
-        Document page = getPage();
-        //css query language
-        Element tableWth = page.select ("table[class=wt]").first();
-        System.out.println(tableWth);
-        Elements names = tableWth.select("tr[class=wth]");
-        Elements values = tableWth.select("tr[valign=top]");
+        public static void main (String[]args) throws Exception {
+            Document page = getPage();
+            //css query language
+            Element tableWth = page.select("table[class=wt]").first();
+            System.out.println(tableWth);
+            Elements names = tableWth.select("tr[class=wth]");
+            Elements values = tableWth.select("tr[valign=top]");
 
-        int index = 0;
+            int index = 0;
 
-        for (Element name : names){
-            String dateSting = name.select("th[id=dt]").text();
-            String date = getDateFromString(dateSting);
-            System.out.println("      Явления       Температура   Давл     Влажность      Ветер");
-            printForValues(values,index);
+            for (Element name : names) {
+                String dateSting = name.select("th[id=dt]").text();
+                String date = getDateFromString(dateSting);
+                System.out.println(date + "\tЯвления\tТемпература \tДавл\tВлажность\tВетер");
+                int iterationCount = printPartValues(values, index);
+                index = index + iterationCount;
 
+
+            }
 
         }
-
     }
-}
+
