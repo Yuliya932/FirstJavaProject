@@ -27,7 +27,7 @@ public class ParserEM {
 
         Elements values = tablePrs.select("tr");
 
-        int index = 0;
+
 
         //Создаем новую книгу Excel
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -35,28 +35,35 @@ public class ParserEM {
         //Создаем новый лист в книге
         XSSFSheet sheet = workbook.createSheet("ЕвразМаркет");
 
-
+        int index = 0;
         for (Element v : values) {
-
             int i = 0;
-
                 Element valueLine = values.get(index);
-            Row dataRow1 = sheet.createRow(index);
-                for (Element td : valueLine.select("td")) {
+                Row dataRow1 = sheet.createRow(index);
+            for (Element td : valueLine.select("th")) {
 
+                System.out.print(td.text() + "\t" + "\t" + "\t");
+//                    Записываем данные в ячейки
+                dataRow1.createCell(i).setCellValue(td.text());
+
+                if ((i>=6) & (index == 0)){
+                    System.out.print(td.text() + "\t" + "\t" + "\t");
+                    i++;
+//                    Записываем данные в ячейки
+                    dataRow1.createCell(i).setCellValue(td.text());
+
+                }
+                i++;
+
+            }
+                for (Element td : valueLine.select("td")) {
                     System.out.print(td.text() + "\t" + "\t" + "\t");
 //                    Записываем данные в ячейки
-
-
                     dataRow1.createCell(i).setCellValue(td.text());
                     i++;
                 }
-
                 System.out.println();
                 index++;
-//            }
-
-
         }
         //Записываем книгу Excel в файл
         String filePath = "src/project2semestr/example1.xlsx";
