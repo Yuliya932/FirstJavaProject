@@ -30,7 +30,8 @@ public class ParserEM {
         return page;
     }
 
-    public static void main(String[] args) throws ParserConfigurationException , SAXException, XMLStreamException, TransformerException, AddressException, MessagingException ,  IOException {
+    public static void main(String[] args) throws ParserConfigurationException , SAXException, XMLStreamException,
+            TransformerException, AddressException, MessagingException ,  IOException {
         Document page = getPage();
         Element tablePrs = page.select("Table[class=pricelist-section-table]").first();
         Elements values = tablePrs.select("tr");
@@ -47,11 +48,9 @@ public class ParserEM {
                 Element valueLine = values.get(index);
                 Row dataRow1 = sheet.createRow(index);
             for (Element td : valueLine.select("th")) {
-
 //                    Записываем данные в ячейки
                 dataRow1.createCell(i).setCellValue(td.text());
                 if ((i>=6) & (index == 0)){
-
                     i++;
 //                    Записываем данные в ячейки
                     dataRow1.createCell(i).setCellValue(td.text());
@@ -59,7 +58,6 @@ public class ParserEM {
                 i++;
             }
                 for (Element td : valueLine.select("td")) {
-
 //                    Записываем данные в ячейки
                     dataRow1.createCell(i).setCellValue(td.text());
                     i++;
@@ -82,8 +80,8 @@ public class ParserEM {
         Session mailSession = Session.getDefaultInstance(properties);
 
         MimeMessage message = new MimeMessage(mailSession); // Создание объекта сообщения
-        message.setFrom(new InternetAddress("uXXXXo@yandex.ru"));
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress("uliamaslovaXXXX@gmail.com"));
+        message.setFrom(new InternetAddress("uXXXXX@yandex.ru"));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress("uliamXXXXXX@gmail.com"));
         message.setSubject("Прайс Евраз Маркет " + currentDate);
 
         // Создание и заполнение первой части
@@ -106,7 +104,7 @@ public class ParserEM {
         message.setContent(mp);
 
         Transport tr = mailSession.getTransport();
-        tr.connect(null,"XXXXXXXX");
+        tr.connect(null,"XXXXXX");
         tr.sendMessage(message, message.getAllRecipients());
         tr.close();
 
