@@ -15,7 +15,7 @@ public class ParserMT {
         return page;
     }
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 //        System.out.println(getPage());
         Document page = getPage();
         //css query language
@@ -42,13 +42,14 @@ public class ParserMT {
             for (int i = 0; i < 10; i++) {
                 Element valueLine = values.get(index + i);
                 for (Element td : valueLine.select("td")) {
-                    System.out.print(td.text() + "\t"+ "\t"+ "\t");
+                    System.out.print(td.text() + "\t" + "\t" + "\t");
                 }
                 System.out.println();
             }
 
+        }
+
+
     }
-
-
-}}
+}
 
