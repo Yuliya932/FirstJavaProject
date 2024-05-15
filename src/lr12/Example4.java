@@ -6,14 +6,14 @@ import java.time.LocalTime;
 
 public class Example4 {
     public static void main(String[] args) {
-        var counter = new AtomicInteger();
-        while (true) {
-            new Thread(() -> {
-                int count = counter.incrementAndGet();
-                System.out.println("thread count = " + count);
-                LockSupport.park();
-            }).start();
-        }
+//        var counter = new AtomicInteger();
+//        while (true) {
+//            new Thread(() -> {
+//                int count = counter.incrementAndGet();
+//                System.out.println("thread count = " + count);
+//                LockSupport.park();
+//            }).start();
+//        }
 
 
     }
