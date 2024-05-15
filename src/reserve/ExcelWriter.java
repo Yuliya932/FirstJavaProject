@@ -4,7 +4,6 @@ import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import project2semestr.ClientInfo;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
