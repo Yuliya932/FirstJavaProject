@@ -12,8 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExcelWriter {
-    private static final List<project2semestr.ClientInfo> CLIENTS = Arrays.asList(
-            new project2semestr.ClientInfo("Иванов Ваня", LocalDate.of(1988, 1, 20)),
+    private static final List<ClientInfo> CLIENTS = Arrays.asList(
+            new ClientInfo("Иванов Ваня", LocalDate.of(1988, 1, 20)),
             new ClientInfo("Петров Петя", LocalDate.of(1992, 10, 6))
     );
 
