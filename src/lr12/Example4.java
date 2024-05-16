@@ -3,10 +3,15 @@
 package lr12;
 
 public class Example4 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Thread t1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName());
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         });
 
         Thread t2 = new Thread(() -> {
@@ -52,6 +57,17 @@ public class Example4 {
         t8.start();
         t9.start();
         t10.start();
+
+        t1.join();
+        t2.join();
+        t3.join();
+        t4.join();
+        t5.join();
+        t6.join();
+        t7.join();
+        t8.join();
+        t9.join();
+        t10.join();
 
     }
 }
