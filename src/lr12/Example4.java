@@ -2,35 +2,56 @@
 и каждый поток выводит на экран свой номер.*/
 package lr12;
 
-import java.time.LocalTime;
-
 public class Example4 {
     public static void main(String[] args) {
-//        var counter = new AtomicInteger();
-//        while (true) {
-//            new Thread(() -> {
-//                int count = counter.incrementAndGet();
-//                System.out.println("thread count = " + count);
-//                LockSupport.park();
-//            }).start();
-//        }
 
+        Thread t1 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        Thread t2 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        Thread t3 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+        Thread t4 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        Thread t5 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        Thread t6 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+        Thread t7 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        Thread t8 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        Thread t9 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+        Thread t10 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+        t6.start();
+        t7.start();
+        t8.start();
+        t9.start();
+        t10.start();
 
     }
-
-
-//        Thread t1 = new Thread(() -> {
-////        for (int i = 0; i < 10; i++){
-//            System.out.println(Thread.currentThread().getName() + ": "
-//                    + LocalTime.now());
-//
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        t1.start();
-////        t1.join();
-//    }
 }
