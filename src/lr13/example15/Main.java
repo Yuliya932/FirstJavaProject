@@ -12,5 +12,46 @@
 */
 package lr13.example15;
 
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите количество чисел в массиве");
+        int numbersCount = scanner.nextInt();
+        int[] array = new int[numbersCount];
+        int sum = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Введите число");
+
+//            try {
+                array[i] = scanner.nextInt();
+//                if (scanner.nextInt() = (int) "\\d") {
+//                    throw new InputMismatchException("ввод строки вместо числа1");
+//
+//                }
+//            } catch (InputMismatchException e) {
+////            } catch (InputMismatchException e) {
+//                System.out.println("ввод строки вместо числа2");
+//
+//            }
+            //InputMismatchException
+            if (array[i] > 0) {
+                sum = sum + array[i];
+            }
+        }
+        double avg = (double) sum / array.length;
+//        try {
+//            if (sum > 0 ) {
+                System.out.println("Среднее значение среди положительных элементов одномерного массива: " + avg);
+//            }
+//            throw new Exception("Для вычисления нет положительных чисел");
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+    }
 }
