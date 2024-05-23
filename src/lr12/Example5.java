@@ -3,43 +3,70 @@
 Количество потоков должно быть равно количеству ядер процессора.*/
 package lr12;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Example5 {
+    public static int array[];
+
+    public static int maxs[];
+
+    public static int max;
+
+
     public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите количество чисел в массиве");
+        int numbersCount = scanner.nextInt();
+        System.out.println("Введите количество потоков");
+        int threadsCount = scanner.nextInt();
 
-            // создать списочный массив значений типа Integer
-            ArrayList<Integer> myList = new ArrayList<>();
-//            myList = [706, 575, 855, 882, 595, 778, 477, 602, 147, 467, 693, 793, 120, 384, 256, 866, 548, 367, 910, 848];
-//                    "206 232 632 315 743 823 620 111 279 548 210 393 791 815 519 768 168 484 780 705",
-//                    "709 127 900 171 189 590 563 317 600 975 892 296 166 353 863 312 399 872 964 591",
-//                    "302 869 679 157 419 485 325 290 739 149 407 648 688 474 311 177 318 611 348 557",
-//                    "559 283 171 352 698 759 384 822 598 410 802 293 962 859 812 153 436 392 869 167"};
-//                myList.add(7);
-//                    myList.add(18);
-//                    myList.add(10);
-//                    myList.add(24);
-//                    myList.add(17);
-//                    myList.add(5);
+        array = new int[numbersCount];
+        maxs = new int[threadsCount];
 
-                    System.out.println("Иcxoдный список: " + myList);
-//получить поток элементов списочного массива
-                    Stream<Integer> myStream = myList.parallelStream();
-//получить минимальное и максимальное значения,
-                    // вызвав методы min(), max()
-                    Optional<Integer> minVal = myStream.min(Integer::compare);
-                    if(minVal.isPresent()) System.out.println(
-                            "Минимальное значение: " + minVal.get());
-                    // непременно получить новый поток данных,
-//поскольку предыдущий вызов метода min()
-//стал оконечной операцией, употребившей поток данных
-                            myStream = myList.parallelStream();
-                    Optional<Integer> maxVal = myStream.max(Integer::compare);
-                    if(maxVal.isPresent()) System.out.println(
-                            "Максимальное значение: " + maxVal.get());
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(100);
+        }
 
+        long startTime = System.currentTimeMillis();
+
+        int realMax = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if(realMax < array[i]) {
+                realMax = array[i];
+            }
+        }
+
+        long time = System.currentTimeMillis() - startTime;
+
+        System.out.println("Max через цикл - " + realMax);
+        System.out.println("Время выполнения через цикл - " + time);
+
+        //  реализовать работу с потоками
+        long startTime1 = System.currentTimeMillis();
+
+        int byThreadMax = 0;
+        int numberOfElementsInOneThread = (int) Math.ceil((double) (numbersCount) / (double) (threadsCount));
+        int[] maxs = new int[threadsCount];
+        for (int i = 0; i < maxs.length; i++) {
+            MaxThread MaxThread = new MaxThread(i * numberOfElementsInOneThread, (i + 1) * numberOfElementsInOneThread - 1);
+            MaxThread.start();
+            try {
+                MaxThread.join();
+            } catch (InterruptedException e) {
+                throw new IllegalArgumentException();
+            }
+            maxs[i] = max;
+            if (byThreadMax < maxs[i]) {
+                byThreadMax = maxs[i];
+            }
+        }
+
+        long time1 = System.currentTimeMillis() - startTime1;
+
+        System.out.println("Max через потоки - " + byThreadMax);
+        System.out.println("Время выполнения через потоки - " + time1);
     }
-
 }

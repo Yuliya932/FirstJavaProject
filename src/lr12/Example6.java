@@ -41,7 +41,7 @@ public class Example6 {
         System.out.println("Сумма через цикл - " + realSum);
         System.out.println("Время выполнения через цикл - " + time);
 
-        // TODO: реализовать работу с потоками
+        //  реализовать работу с потоками
         long startTime1 = System.currentTimeMillis();
 
         int byThreadSum = 0;
