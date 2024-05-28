@@ -10,13 +10,21 @@
 */
 package lr13.example16;
 
-import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] argc) {
+        int N=0;
         Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
+        System.out.println("Введите индекс столбца из матрицы 10х10");
+        try {
+        N = scan.nextInt();
+
+        } catch (InputMismatchException e) {
+            System.out.println("Ввод строки вместо числа");
+            return;
+        }
         solve(N,fill(10));
     }
 
@@ -25,16 +33,22 @@ public class Main {
         for(int i = 0;i<arr.length;i++) {
             for(int j = 0;j<arr.length;j++) {
                 arr[i][j]=(int)(Math.random()*10);
+                System.out.print(arr[i][j]+" ");
             }
+            System.out.println();
         }
-        System.out.println(Arrays.deepToString(arr));
         return arr;
     }
 
     public static void solve(int N,int[][]arr) {
-        for(int i = 0;i<arr[N].length;i++) {
-            System.out.print(arr[N][i]+" ");
+        try{
+                for(int i = 0;i<arr[N].length;i++) {
+                    System.out.print(arr[i][N]);
+                    System.out.println();
+                }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+
         }
     }
-
 }
