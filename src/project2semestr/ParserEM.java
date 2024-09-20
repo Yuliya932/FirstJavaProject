@@ -73,15 +73,15 @@ public class ParserEM {
         System.out.println("Данные записаны в файл: " + filePath);
 
         Properties properties = new Properties();
-        properties.load(new FileInputStream("C:\\Users\\DearUser3\\IdeaProjects\\FirstJavaProject\\properties"));
+        properties.load(new FileInputStream("C:\\Users\\user\\IdeaProjects\\FirstJavaProject\\properties"));
 
         java.time.LocalDate currentDate = java.time.LocalDate.now();
 
         Session mailSession = Session.getDefaultInstance(properties);
 
         MimeMessage message = new MimeMessage(mailSession); // Создание объекта сообщения
-        message.setFrom(new InternetAddress("uXXXXX@yandex.ru"));
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress("uliamXXXXXX@gmail.com"));
+        message.setFrom(new InternetAddress("XXXXXo@yandex.ru"));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress("XXXXX51@gmail.com"));
         message.setSubject("Прайс Евраз Маркет " + currentDate);
 
         // Создание и заполнение первой части
@@ -104,7 +104,7 @@ public class ParserEM {
         message.setContent(mp);
 
         Transport tr = mailSession.getTransport();
-        tr.connect(null,"XXXXXX");
+        tr.connect(null,"XXXXXXXXX");
         tr.sendMessage(message, message.getAllRecipients());
         tr.close();
 

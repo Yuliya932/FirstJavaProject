@@ -9,7 +9,7 @@ public class CreateProperties {
         Properties properties = new Properties();
         properties.setProperty("one", "1");
         System.out.println(properties.getProperty("one"));
-        FileOutputStream out = new FileOutputStream("addressFrom");
+        FileOutputStream out = new FileOutputStream("properties");//"addressFrom"
         properties.store(out, "my comment");
 
     }
