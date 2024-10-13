@@ -4,11 +4,15 @@ import java.util.Scanner;
 
 public class Main {
 
-
     // Переведём число из десятичной системы в двоичную
     public static String convertDecimalToBinary(int decimal) {
-        String output = Integer.toBinaryString(decimal);
-        return output;
+        if(decimal<0) {
+            String output = Integer.toBinaryString(decimal);
+            return output;
+        } else {
+            String output = String.format("%32s", Integer.toBinaryString(decimal)).replace(' ', '0');
+            return output;
+        }
     }
     //метод сложения  целых чисел
     public static String ArithSum (int number1, int number2) {
